@@ -24,7 +24,7 @@ The journey's next stop was at KubeVirt. KubeVirt is a Red Hat sponsored project
 Although the wary travelers had little experience with Kubernetes, KubeVirt seemed to fit more naturally with the Kubernetes, using the mechanisms it provides to extend the cluster functionality. From here the journey explores KubeVirt in more depth and even establishes some new routes by painting KubeVirt green.
 
 
-A closer look at KubeVirt
+# A Closer Look at KubeVirt
 
 KubeVirt extends Kubernetes by adding a custom resource definition and related logic extensions to the cluster. The custom resource definition essentially registers a new endpoint with the Kubernetes API server. Requests against this endpoint are handled by virt-api and ultimately virt-controller. The KubeVirt CRD is rather simple, adding the new endpoint KubeVirt.io
 
@@ -112,7 +112,7 @@ Like many projects in the Kubernetes ecosystem, KubeVirt is written in go. It us
 The builder container can be created from the top level Makefile with the 'builder-build' target, e.g. 'make builder-build'. Likewise the builder container can be published to Docker Hub with the 'make builder-publish' target. When building kubevirt with the builder container, a persistent docker volume is created for rsync'ing the KubeVirt sources to the container and extracting the artifacts after the build. The default make target uses the builder container to build all the go components and container images for running them. Along with the containers, the build also produces manifests for deploying KubeVirt on a Kubernetes cluster.
 
 
-# Painting KubeVirt green
+# Painting KubeVirt Green
 
 With SUSE's move away from OpenStack and commitment to Kubernetes and containerization came the need to support virtualized workloads on Kubernetes. Product management recognized the need and created ECOs 2411 and 2415 to provide KubeVirt on SLE15 SP2. The virtualization team was tasked to implement the ECOs. The path became very steep in this part of the journey. At times the travelers were on hands and knees, crawling at a snail's pace.
 
