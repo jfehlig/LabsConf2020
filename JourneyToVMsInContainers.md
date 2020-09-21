@@ -9,7 +9,7 @@ This paper will describe the journey of a few old-school virtualization hackers
 as they made their way into the world of containerization, Kubernetes, and
 running virtual machines in containers. The journey started with a quick survey
 of open source projects providing virtualization support on Kubernetes. After
-scouting the Camp Virtlet, the explorers traveled to Camp KubeVirt, along with
+scouting Camp Virtlet, the explorers traveled to Camp KubeVirt, along with
 reconnaissance of Camp Kubernetes. The journey then ventured deeper into KubeVirt
 and the process of [painting it green](https://www.youtube.com/watch?v=b0tsZB_LEQk).
 
@@ -31,7 +31,7 @@ generally share a single network namespace, to be able to communicate simply and
 quickly, but have their own PID and mount namespaces, as well as CGroups for
 CPU, memory and devices.
 
-[**kubelet**](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 is a Kubernetes node agent. Its primary purpose is to take a PodSpec (YAML or
 JSON object describing a pod) and ensure the containers described in the
 PodSpec are running and healthy.
@@ -117,7 +117,8 @@ It was already discovered that KubeVirt extends Kubernetes by adding a CRD and
 related logic extensions to the cluster. The CRD essentially registers a new
 endpoint with the Kubernetes API server. Requests against this endpoint are
 then handled by the logic components, for example virt-api and virt-controller.
-The KubeVirt CRD is rather simple, adding the new endpoint KubeVirt.io
+The KubeVirt CRD is rather simple, adding the new endpoint `KubeVirt.io` with a
+single API version named `v1alpha3`
 
 ```yaml
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -183,7 +184,8 @@ spec:
 ...
 ```
 
-Attempting to create a custom resource that is not supported by the KubeVirt.io endpoint results in an error
+Attempting to create a custom resource that is not supported by the KubeVirt.io
+endpoint results in an error
 
 ```
 # cat crap.yaml
@@ -254,7 +256,8 @@ containerization came the need to support virtualized workloads on Kubernetes.
 Product management recognized the need and created Engineering Change Orders
 (ECO) to provide KubeVirt on SLES. The virtualization team was tasked to
 execute. The path became very steep in this part of the journey. At times the
-explorers were on hands and knees, crawling at a snail's pace.
+explorers felt as though they were on hands and knees, crawling at a snail's
+pace.
 
 The first steps on this path were used to gain a better understanding of the
 KubeVirt build system. Currently only Fedora-based builder containers exist
@@ -509,12 +512,18 @@ cluster resources, logs from cluster pods hosting the resources, and internal
 pod inspection to name a few. Throughout this journey the most useful sources
 of information were
 
-resource manifests: `kubectl get resource resource-name -o yaml`
-resource current state: `kubectl describe resource resource-name`
-logs from the pod hosting the resource: `kubectl logs resource-pod-name`
+resource manifests:
+`kubectl get resource resource-name -o yaml`
 
-Inspecting the internal state of a pod was also quite useful at times and ca
-be done by accessing a shell inside the pod: `kubectl exec -it pod-name -- /bin/bash`
+resource current state:
+`kubectl describe resource resource-name`
+
+logs from the pod hosting the resource:
+`kubectl logs resource-pod-name`
+
+Inspecting the internal state of a pod was also quite useful at times and can
+be done by accessing a shell inside the pod:
+`kubectl exec -it pod-name -- /bin/bash`
 
 
 # Journey Summary
