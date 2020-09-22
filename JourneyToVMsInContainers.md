@@ -1,9 +1,10 @@
 # Introduction: VMs on Kubernetes!
 
-The rapid adoption of Kubernetes in the IT landscape has spurned the need to run
-traditional virtualized workloads on Kubernetes clusters, using the same tools
-for managing container-native workloads. There are a few projects projects
-providing this feature, with KubeVirt gaining the most traction.
+The rapid adoption of Kubernetes in the IT landscape has generated demand for
+the ability to run traditional virtualized workloads on Kubernetes clusters,
+allowing cluster administrators to manage virtualized and containerized
+workloads with the same tooling. There are a few projects projects providing
+virtualization support in Kubernetes, with KubeVirt gaining the most traction.
 
 This paper will describe the journey of a few old-school virtualization hackers
 as they made their way into the world of containerization, Kubernetes, and
