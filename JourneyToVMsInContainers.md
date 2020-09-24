@@ -32,7 +32,13 @@ generally share a single network namespace, to be able to communicate simply and
 quickly, but have their own PID and mount namespaces, as well as CGroups for
 CPU, memory and devices.
 
-[kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+A [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+is a Kubernetes resources that ensures all (or some) nodes run a copy of a pod.
+As nodes are added to the cluster, pods are added to them. As nodes are removed
+pods belonging to a DaemonSet are garbage collected. Deleting a DaemonSet will
+garbage collect related pods.
+
+[Kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 is a Kubernetes node agent. Its primary purpose is to take a PodSpec (YAML or
 JSON object describing a pod) and ensure the containers described in the
 PodSpec are running and healthy.
@@ -70,7 +76,7 @@ projects providing virtual machines support for Kubernetes: Virtlet and KubeVirt
 # Camp I: Virtlet
 
 [Virtlet](https://github.com/Mirantis/virtlet) is a Mirantis sponsored project
-that essentially transforms a Kubernetes node from one that run containers to
+that essentially transforms a Kubernetes node from one that runs containers to
 one that runs virtual machines. Virtlet enables virtualization in Kubernetes by
 replacing the container runtime with one tailored for virtualization.
 
