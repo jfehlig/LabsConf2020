@@ -1,4 +1,6 @@
-# Introduction: VMs on Kubernetes!
+# A Journey to VMs in Containers
+
+## Introduction: VMs on Kubernetes!
 
 The rapid adoption of Kubernetes in the IT landscape has generated demand for
 the ability to run traditional virtualized workloads on Kubernetes clusters,
@@ -59,7 +61,7 @@ In addition, KubeVirt provides a **VirtualMachineInstance** (VMI) custom
 resource for modeling a running VM.
 
 
-# Base Camp: Planning the Journey
+## Base Camp: Planning the Journey
 
 The journey started during Hackweek 19 by scanning the landscape for existing
 projects adding Virtual Machine support to Kubernetes. Some projects that
@@ -73,7 +75,7 @@ The explorers soon decided to focus on two minimally functional open source
 projects providing virtual machines support for Kubernetes: Virtlet and KubeVirt.
 
 
-# Camp I: Virtlet
+## Camp I: Virtlet
 
 [Virtlet](https://github.com/Mirantis/virtlet) is a Mirantis sponsored project
 that essentially transforms a Kubernetes node from one that runs containers to
@@ -96,7 +98,7 @@ quite immature with limited functionality and a stagnant upstream community
 Virtlet was short-lived.
 
 
-# Camp II: KubeVirt
+## Camp II: KubeVirt
 
 The journey's next stop was at [KubeVirt](https://github.com/kubevirt/kubevirt).
 KubeVirt is a Red Hat sponsored project that extends Kubernetes by adding
@@ -115,7 +117,7 @@ extend the cluster functionality. From here the journey explored KubeVirt in
 more depth and even established some new routes by painting KubeVirt green.
 
 
-# Camp III: Kubernetes Reconnaissance
+## Camp III: Kubernetes Reconnaissance
 
 To better understand KubeVirt, the explorers ventured to Camp Kubernetes to gain
 more knowledge about extension mechanisms and deployment patterns.
@@ -218,7 +220,7 @@ requires changing the cluster-wide components and likely the node components as
 well.
 
 
-# Camp III: Back to KubeVirt
+## Camp III: Back to KubeVirt
 
 With more knowledge about extending Kubernetes and deploying services to the
 cluster, the explorers decided to reacclimate at Camp KubeVirt and start making
@@ -256,7 +258,7 @@ deploying KubeVirt on a Kubernetes cluster, and a client binary for accessing
 the cluster extensions provided by KubeVirt.
 
 
-# Camp IV: Painting KubeVirt Green
+## Camp IV: Painting KubeVirt Green
 
 With SUSE's move away from OpenStack and commitment to Kubernetes and
 containerization came the need to support virtualized workloads on Kubernetes.
@@ -312,7 +314,7 @@ available in registry.suse.de for use by other adventurers. For the
 virtualization team however, there were still obstacles to overcome.
 
 
-# Camp V: Deploying KubeVirt
+## Camp V: Deploying KubeVirt
 
 The journey continued with exploring mechanisms to deploy KubeVirt. One obvious
 requirement is a working Kubernetes cluster. The SUSE CaaSP product provides a
@@ -371,7 +373,7 @@ able to successfully deploy KubeVirt! It was time for the travelers to take the
 final few steps to reach their goal of running virtual machines on Kubernetes!
 
 
-# Summit: Running Virtual Machines
+## Summit: Running Virtual Machines
 
 Two of the most interesting custom resources provided by KubeVirt have already
 been mentioned: VirtualMachine and VirtualMachineInstance. As the name implies,
@@ -508,7 +510,7 @@ feature-gates. For example
 `kubectl create configmap KubeVirt-config -n KubeVirt --from-literal feature-gates=HostDisk`
 
 
-# Investigating Obstacles
+## Investigating Obstacles
 
 Those with exploration experience know that problems always arise on such
 journeys, and having tools to solve those problems are paramount for success.
@@ -533,7 +535,7 @@ be done by accessing a shell inside the pod:
 `kubectl exec -it pod-name -- /bin/bash`
 
 
-# Journey Summary
+## Journey Summary
 
 With SUSE's commitment to containerization and the rapid adoption of Kubernetes
 throughout the IT industry it is desirable to run traditional virtualized
